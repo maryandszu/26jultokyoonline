@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>本次團購商品清單</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F4EE;
+    --ink:#2E3B4E;
+    --accent:#E8879A;
+    --accent-deep:#C96079;
+    --sage:#8FA998;
+    --tag:#F2C744;
+    --card:#FFFFFF;
+    --line:#E4DED2;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(232,135,154,0.10), transparent 40%),
+      radial-gradient(circle at 90% 25%, rgba(143,169,152,0.12), transparent 45%);
+    color:var(--ink);
+    font-family:"Noto Sans TC", sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  header{
+    padding:38px 20px 26px;
+    text-align:center;
+    position:relative;
+  }
+  header .eyebrow{
+    font-family:"Zen Maru Gothic", sans-serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.25em;
+    color:var(--accent-deep);
+    display:inline-block;
+    padding:4px 14px;
+    border:1.5px dashed var(--accent);
+    border-radius:20px;
+    background:#FFF9F5;
+  }
+  header h1{
+    font-family:"Zen Maru Gothic", sans-serif;
+    font-weight:900;
+    font-size:26px;
+    line-height:1.5;
+    margin:14px 0 6px;
+  }
+  header p{
+    font-size:13.5px;
+    color:#6B7686;
+    margin:0;
+  }
+  .wrap{
+    max-width:520px;
+    margin:0 auto;
+    padding:6px 16px 60px;
+  }
+  .section-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:34px 4px 14px;
+  }
+  .section-title .badge{
+    font-family:"Zen Maru Gothic", sans-serif;
+    font-weight:700;
+    font-size:12px;
+    color:#fff;
+    background:var(--ink);
+    padding:4px 10px;
+    border-radius:8px;
+    letter-spacing:0.05em;
+  }
+  .section-title h2{
+    font-family:"Zen Maru Gothic", sans-serif;
+    font-size:15px;
+    font-weight:700;
+    margin:0;
+    color:var(--ink);
+  }
+  .section-title .line{
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+  ul.list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  a.card{
+    display:flex;
+    gap:14px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:12px;
+    text-decoration:none;
+    color:inherit;
+    position:relative;
+    box-shadow:0 3px 0 rgba(46,59,78,0.04);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  a.card:active{
+    transform:scale(0.98);
+    box-shadow:0 1px 0 rgba(46,59,78,0.04);
+  }
+  .thumb{
+    width:88px;
+    height:88px;
+    flex:none;
+    border-radius:14px;
+    overflow:hidden;
+    background:#F1EEE7;
+  }
+  .thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .info{
+    flex:1;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:6px;
+  }
+  .code-tag{
+    align-self:flex-start;
+    font-family:"Zen Maru Gothic", sans-serif;
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:0.04em;
+    color:var(--accent-deep);
+    background:#FCEEF1;
+    padding:2px 8px;
+    border-radius:6px;
+    border:1px solid #F3D3DA;
+  }
+  .name{
+    font-size:14.5px;
+    font-weight:500;
+    line-height:1.4;
+    color:var(--ink);
+    overflow:hidden;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+  }
+  .cta{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    font-size:12px;
+    color:var(--sage);
+    font-weight:700;
+  }
+  .cta svg{width:13px;height:13px;flex:none;}
+  footer{
+    text-align:center;
+    padding:0 20px 50px;
+    font-size:12px;
+    color:#9AA3AF;
+  }
+  footer .heart{color:var(--accent);}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="eyebrow">GROUP ORDER · 本次連線</span>
+  <h1>點圖片<br>直接跳到下單貼文 🛍️</h1>
+  <p>共 10 樣商品，點任一張卡片即可前往 Facebook 社團該商品的下單貼文</p>
+</header>
+
+<div class="wrap">
+
+  <div class="section-title">
+    <span class="badge">US</span>
+    <h2>美國嚴選</h2>
+    <span class="line"></span>
+  </div>
+  <ul class="list">
+    <li>
+      <a class="card" href="https://reurl.cc/aE5yMD" target="_blank" rel="noopener">
+        <div class="thumb"><img src="images/US703.jpg" alt="Starbucks x Owala SmoothSip Slider"></div>
+        <div class="info">
+          <span class="code-tag">US703</span>
+          <div class="name">Starbucks x Owala 限量聯名！SmoothSip Slider 滑蓋隨行杯</div>
+          <div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a class="card" href="https://reurl.cc/Vn3VmR" target="_blank" rel="noopener">
+        <div class="thumb"><img src="images/US702.jpg" alt="HydroJug Everyday Tumbler"></div>
+        <div class="info">
+          <span class="code-tag">US702</span>
+          <div class="name">美國爆紅 HydroJug Everyday Tumbler 陶瓷吸管隨行杯</div>
+          <div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+  <div class="section-title">
+    <span class="badge">TY</span>
+    <h2>台灣直送 · 迪士尼／三麗鷗</h2>
+    <span class="line"></span>
+  </div>
+  <ul class="list">
+    <li>
+      <a class="card" href="https://reurl.cc/Vn3g7Z" target="_blank" rel="noopener">
+        <div class="thumb"><img src="images/TY705.jpg" alt="Zebra bLen 迪士尼限定版多色筆"></div>
+        <div class="info">
+          <span class="code-tag">TY705</span>
+          <div class="name">Zebra bLen 迪士尼限定版多色筆</div>
+          <div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a class="card" href="https://reurl.cc/YmW3No" target="_blank" rel="noopener">
+        <div class="thumb"><img src="images/TY701.webp" alt="三麗鷗好朋友網格收納板"></div>
+        <div class="info">
+          <span class="code-tag">TY701</span>
+          <div class="name">三麗鷗七月新品！好朋友網格收納板</div>
+          <div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+  <div class="section-title">
+    <span class="badge">JP</span>
+    <h2>日本代購</h2>
+    <span class="line"></span>
+  </div>
+  <ul class="list">
+    <li>
+      <a class="card" href="https://reurl.cc/yWnAjl" target="_blank" rel="noopener">
+        <div class="thumb"><img src="images/JP715.jpg" alt="LEC 排水口除垢防菌劑"></div>
+        <div class="info">
+          <span class="code-tag">JP715</span>
+          <div class="name">LEC 排水口除垢防菌劑 2入組</div>
+          <div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a class="card" href="https://reurl.cc/KEx9nm" target="_blank" rel="noopener">
+        <div class="thumb"><img src="images/JP714.jpg" alt="日本製MOKU多功能型毛巾"></div>
+        <div class="info">
+          <span class="code-tag">JP714</span>
+          <div class="name">日本製 MOKU 多功能型毛巾</div>
+          <div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a class="card" href="https://reurl.cc/3yLdrO" target="_blank" rel="noopener">
+        <div class="thumb"><img src="images/JP712.jpeg" alt="HACOON白雲今治頂級純棉毛巾系列"></div>
+        <div class="info">
+          <span class="code-tag">JP712</span>
+          <div class="name">日本製 HACOON 白雲今治頂級純棉毛巾系列</div>
+          <div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a class="card" href="https://reurl.cc/Ym6LMx" target="_blank" rel="noopener">
+        <div class="thumb"><img src="images/JP711.webp" alt="WEICO衣物消臭洗衣膠囊"></div>
+        <div class="info">
+          <span class="code-tag">JP711</span>
+          <div class="name">WEICO 衣物消臭洗衣膠囊（14入）</div>
+          <div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a class="card" href="https://reurl.cc/0kOLYY" target="_blank" rel="noopener">
+        <div class="thumb"><img src="images/JP708.jpg" alt="EARTH馬桶噴嘴泡泡清潔劑"></div>
+        <div class="info">
+          <span class="code-tag">JP708</span>
+          <div class="name">EARTH 馬桶噴嘴泡泡清潔劑</div>
+          <div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a class="card" href="https://reurl.cc/k90G5G" target="_blank" rel="noopener">
+        <div class="thumb"><img src="images/JP705.png" alt="Wpc. Patterns掛式吸水雨傘收納袋"></div>
+        <div class="info">
+          <span class="code-tag">JP705</span>
+          <div class="name">Wpc. Patterns 掛式吸水雨傘收納袋</div>
+          <div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+</div>
+
+<footer>
+  下單前請確認規格顏色 <span class="heart">♥</span> 揪團愉快
+</footer>
+
+</body>
+</html>
