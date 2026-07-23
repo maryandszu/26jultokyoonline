@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>✿ 瑪莉酥酥 ✿ JULY ― 東京連線傳送門</title>
+<meta property="og:title" content="✿ 瑪莉酥酥 ✿ JULY ― 東京連線傳送門">
+<meta property="og:description" content="點任一張卡片即可前往 Facebook 社團該商品的下單貼文">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Klee+One:wght@600&family=Rubik+Bubbles&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFBF2;
+    --paper2:#FFF9F6;
+    --header-pink:#F6A9BC;
+    --ink:#4A3B3E;
+    --pink:#F6A9BC;
+    --pink-deep:#E8628A;
+    --blue:#9FCBE0;
+    --blue-deep:#4B9AC2;
+    --peach:#F5B15A;
+    --peach-deep:#E8923A;
+    --sage:#8FCDB0;
+    --sage-deep:#3F9E79;
+    --card:#FFFFFF;
+    --line:#F5DEE2;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Noto Sans TC", sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .gingham{
+    height:10px; width:100%;
+    background-image: repeating-conic-gradient(#F0899C 0% 25%, transparent 0% 50%);
+    background-size: 14px 14px;
+  }
+  header{ padding:30px 22px 40px; text-align:center; position:relative; background:var(--header-pink); }
+  .wave{
+    height:22px; width:100%; margin-top:-1px;
+    background-color: var(--paper);
+    background-image: radial-gradient(circle at 11px 0, var(--header-pink) 11px, transparent 12px);
+    background-size: 22px 22px;
+    background-repeat: repeat-x;
+    background-position: -5px 0;
+  }
+  .doodle{ position:absolute; opacity:0.9; }
+  .doodle.bow{ top:8px; right:14px; width:46px; height:46px; }
+  .doodle.star{ top:66px; left:10px; width:26px; height:26px; }
+  .brand-name{
+    font-family:"Rubik Bubbles", "Zen Maru Gothic", sans-serif;
+    font-weight:400; font-size:22px; white-space:nowrap;
+    color:var(--blue-deep); margin:2px 0 14px; letter-spacing:0.02em;
+  }
+  header .eyebrow{
+    font-family:"Zen Maru Gothic", sans-serif;
+    font-weight:900; font-size:15px; letter-spacing:0.02em;
+    color:var(--pink-deep); display:inline-block;
+    padding:7px 18px; border:1.5px dashed var(--pink);
+    border-radius:20px; background:var(--paper2);
+  }
+  .sub-eyebrow{
+    font-family:"Zen Maru Gothic", sans-serif;
+    font-weight:900; font-size:15px; letter-spacing:0.02em;
+    color:#5C4030; margin:10px 0 0;
+  }
+  header h1{
+    font-family:"Zen Maru Gothic", sans-serif;
+    font-weight:900; font-size:25px; line-height:1.55; margin:16px 0 8px;
+    color:var(--ink);
+  }
+  .wrap{ max-width:520px; margin:0 auto; padding:22px 16px 60px; }
+  .section-title{ display:flex; align-items:center; gap:10px; margin:36px 4px 14px; }
+  .section-title .badge{
+    font-family:"Zen Maru Gothic", sans-serif; font-weight:700; font-size:12px;
+    color:#fff; padding:5px 12px; border-radius:5px; letter-spacing:0.04em;
+  }
+  .badge.jf{ background:var(--peach-deep); }
+  .badge.jp{ background:var(--blue-deep); }
+  .badge.ty{ background:var(--pink-deep); }
+  .badge.us{ background:var(--sage-deep); }
+  .section-title h2{ font-family:"Zen Maru Gothic", sans-serif; font-size:15px; font-weight:700; margin:0; color:var(--ink); }
+  .section-title .line{ flex:1; height:1px; background:var(--line); }
+  ul.list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px; }
+  a.card{
+    display:flex; gap:14px; background:var(--card); border:1px solid var(--line);
+    border-left-width:6px; border-radius:8px; padding:12px; text-decoration:none; color:inherit; position:relative;
+    box-shadow:0 4px 0 rgba(217,117,143,0.06); transition:transform .12s ease, box-shadow .12s ease;
+  }
+  ul.list.jf a.card{ border-left-color:var(--peach-deep); }
+  ul.list.jp a.card{ border-left-color:var(--blue-deep); }
+  ul.list.ty a.card{ border-left-color:var(--pink-deep); }
+  ul.list.us a.card{ border-left-color:var(--sage-deep); }
+  a.card:active{ transform:scale(0.98); box-shadow:0 1px 0 rgba(217,117,143,0.06); }
+  .thumb{ width:128px; height:128px; flex:none; border-radius:6px; overflow:hidden; background:#FBEFEA; display:flex; align-items:center; justify-content:center; }
+  .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .thumb.placeholder{ font-size:11px; color:#D3A7B2; text-align:center; line-height:1.4; padding:6px; }
+  .info{ flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center; gap:6px; }
+  .code-tag{
+    align-self:flex-start; font-family:"Zen Maru Gothic", sans-serif; font-size:10.5px; font-weight:700;
+    letter-spacing:0.04em; color:var(--pink-deep); background:#FCEEF1; padding:2px 8px; border-radius:4px;
+    border:1px solid #F3D3DA;
+  }
+  .name{ font-size:14.5px; font-weight:500; line-height:1.4; color:var(--ink); overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+  .cta{ display:flex; align-items:center; gap:4px; font-size:12px; color:var(--sage-deep); font-weight:700; }
+  .cta svg{ width:13px; height:13px; flex:none; }
+  footer{ text-align:center; padding:0 20px 50px; font-size:12px; color:#B39BA3; }
+  footer .heart{ color:var(--pink-deep); }
+</style>
+</head>
+<body>
+
+<div class="gingham"></div>
+<header>
+  <svg class="doodle bow" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M32 30c-6-10-20-14-24-6-3 6 4 12 12 10-8 4-12 12-6 16 6 4 14-4 18-14 4 10 12 18 18 14 6-4 2-12-6-16 8 2 15-4 12-10-4-8-18-4-24 6z" stroke="#E8628A" stroke-width="2" fill="none" stroke-linejoin="round"/>
+    <circle cx="32" cy="30" r="3" fill="#E8628A"/>
+  </svg>
+  <svg class="doodle star" viewBox="0 0 24 24" fill="#9FCBE0" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z"/>
+  </svg>
+  <div class="brand-name">MARY &amp; SZU SELECT SHOP</div>
+  <span class="eyebrow">✿ 瑪莉酥酥 ✿ JULY ― 東京連線</span>
+  <p class="sub-eyebrow">點任一張卡片即可前往 Facebook 社團該商品的下單貼文</p>
+</header>
+<div class="wave"></div>
+
+<div class="wrap">
+
+  <div class="section-title"><span class="badge jf">JF</span><h2>日本好好吃</h2><span class="line"></span></div>
+  <ul class="list jf">
+    <li><a class="card" href="https://reurl.cc/8Y3LMd" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JF710.jpg" alt="北海道國產無咖啡因黑豆茶"></div>
+      <div class="info"><span class="code-tag">JF710</span><div class="name">北海道國產無咖啡因黑豆茶</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/Z8Gq56" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JF709.jpg" alt="Calbee奶油烤玉米厚切洋芋片"></div>
+      <div class="info"><span class="code-tag">JF709</span><div class="name">Calbee奶油烤玉米厚切洋芋片</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/DYgLkd" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JF708.jpg" alt="沖繩塩黑糖"></div>
+      <div class="info"><span class="code-tag">JF708</span><div class="name">沖繩塩黑糖</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/QN9GA5" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JF707.jpg" alt="Nescafe夏季限定金牌咖啡濃縮膠囊18入"></div>
+      <div class="info"><span class="code-tag">JF707</span><div class="name">Nescafe夏季限定金牌咖啡濃縮膠囊18入</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/dOGeKk" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JF706.jpg" alt="日清新推出!夏日冷水杯麵"></div>
+      <div class="info"><span class="code-tag">JF706</span><div class="name">日清新推出!夏日冷水杯麵</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/xe0zx5" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JF705.webp" alt="京都茶乃蔵宇治抹茶粉"></div>
+      <div class="info"><span class="code-tag">JF705</span><div class="name">京都茶乃蔵宇治抹茶粉</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/VnXy36" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JF704.jpg" alt="茅乃舍蛋料理調味包系列"></div>
+      <div class="info"><span class="code-tag">JF704</span><div class="name">茅乃舍蛋料理調味包系列</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/6XlAlk" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JF703.jpg" alt="茅乃舍即食湯包四入組"></div>
+      <div class="info"><span class="code-tag">JF703</span><div class="name">茅乃舍即食湯包四入組</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/NO6zjm" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JF702.jpg" alt="茅乃舍日式高湯包系列"></div>
+      <div class="info"><span class="code-tag">JF702</span><div class="name">茅乃舍日式高湯包系列</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/omdlNg" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JF701.jpg" alt="日本HAGINO萬能職人海味高湯鹽"></div>
+      <div class="info"><span class="code-tag">JF701</span><div class="name">日本HAGINO萬能職人海味高湯鹽</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+  </ul>
+
+  <div class="section-title"><span class="badge jp">JP</span><h2>日本生活雜貨</h2><span class="line"></span></div>
+  <ul class="list jp">
+    <li><a class="card" href="https://reurl.cc/RR0Kzn" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP729.jpg" alt="日本HANGY Zoo動物造型吊掛廚房巾"></div>
+      <div class="info"><span class="code-tag">JP729</span><div class="name">日本HANGY Zoo動物造型吊掛廚房巾</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/dOGdDq" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP728.jpg" alt="日本保濕鎖水足跟保濕修護套"></div>
+      <div class="info"><span class="code-tag">JP728</span><div class="name">日本保濕鎖水足跟保濕修護套</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/mzLWDG" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP727.jpg" alt="日本Atsugi加壓襪/小腿套"></div>
+      <div class="info"><span class="code-tag">JP727</span><div class="name">日本Atsugi加壓襪/小腿套</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/p8gq6r" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP726.jpg" alt="日本嚴選女款船型襪"></div>
+      <div class="info"><span class="code-tag">JP726</span><div class="name">日本嚴選女款船型襪</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/MWAY8n" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP725.jpg" alt="日本製Kireilabo Fitte有機棉混紡細肩無鋼圈內衣"></div>
+      <div class="info"><span class="code-tag">JP725</span><div class="name">日本製Kireilabo Fitte有機棉混紡細肩無鋼圈內衣</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/GgmzA3" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP724.jpg" alt="日本GUNZE hadaka可可膚無痕內褲"></div>
+      <div class="info"><span class="code-tag">JP724</span><div class="name">日本GUNZE hadaka可可膚無痕內褲</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/mzLW0G" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP723.jpg" alt="爽壁涼感抗UV防曬外套"></div>
+      <div class="info"><span class="code-tag">JP723</span><div class="name">爽壁涼感抗UV防曬外套</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/7YrZMk" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP722.jpg" alt="日本COGIT抗UV接觸涼感袖套"></div>
+      <div class="info"><span class="code-tag">JP722</span><div class="name">日本COGIT抗UV接觸涼感袖套</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/jV8XD2" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP721.jpg" alt="日本製感動の一膳止滑筷"></div>
+      <div class="info"><span class="code-tag">JP721</span><div class="name">日本製感動の一膳止滑筷</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/QN91X0" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP720.jpg" alt="日本atomico油刷/調味按壓瓶"></div>
+      <div class="info"><span class="code-tag">JP720</span><div class="name">日本atomico油刷/調味按壓瓶</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/0kjl8Y" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP719.jpg" alt="日本製多用途鋸齒料理剪"></div>
+      <div class="info"><span class="code-tag">JP719</span><div class="name">日本製多用途鋸齒料理剪</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/qag4jp" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP718.jpg" alt="W.R. PAL日本大容量好收納防水購物袋"></div>
+      <div class="info"><span class="code-tag">JP718</span><div class="name">W.R. PAL日本大容量好收納防水購物袋</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/XxW5OD" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP717.png" alt="niko and 網格肩背斜背包"></div>
+      <div class="info"><span class="code-tag">JP717</span><div class="name">niko and 網格肩背斜背包</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/nxnYbn" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP716.jpg" alt="LEC激落君附集塵盒除塵刷系列"></div>
+      <div class="info"><span class="code-tag">JP716</span><div class="name">LEC激落君附集塵盒除塵刷系列</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/yWnAjl" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP715.jpg" alt="LEC排水口除垢防菌劑"></div>
+      <div class="info"><span class="code-tag">JP715</span><div class="name">LEC 排水口除垢防菌劑2入組</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/KEx9nm" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP714.jpg" alt="日本製MOKU多功能型毛巾"></div>
+      <div class="info"><span class="code-tag">JP714</span><div class="name">日本製MOKU多功能型毛巾</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/90Xgox" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP713.jpg" alt="日本製畢業宣言吸水浴巾"></div>
+      <div class="info"><span class="code-tag">JP713</span><div class="name">日本製畢業宣言吸水浴巾</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/3yLdrO" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP712.jpeg" alt="HACOON白雲今治頂級純棉毛巾系列"></div>
+      <div class="info"><span class="code-tag">JP712</span><div class="name">日本製HACOON白雲今治頂級純棉毛巾系列</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/Ym6LMx" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP711.webp" alt="WEICO衣物消臭洗衣膠囊"></div>
+      <div class="info"><span class="code-tag">JP711</span><div class="name">WEICO衣物消臭洗衣膠囊（14入）</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/90XMdx" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP710.jpg" alt="Welco超速效洗衣槽清潔即溶包"></div>
+      <div class="info"><span class="code-tag">JP710</span><div class="name">Welco超速效洗衣槽清潔即溶包</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/QN38no" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP709.jpg" alt="Welco30日用紙質垃圾桶薄荷除臭劑"></div>
+      <div class="info"><span class="code-tag">JP709</span><div class="name">Welco30日用紙質垃圾桶薄荷除臭劑</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/0kOLYY" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP708.jpg" alt="EARTH馬桶噴嘴泡泡清潔劑"></div>
+      <div class="info"><span class="code-tag">JP708</span><div class="name">EARTH馬桶噴嘴泡泡清潔劑</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/mz9aeA" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP707.jpg" alt="EARTH排水管泡沫清潔劑"></div>
+      <div class="info"><span class="code-tag">JP707</span><div class="name">EARTH排水管泡沫清潔劑</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/WzLjpx" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP706.jpg" alt="EARTH馬桶發泡清潔粉"></div>
+      <div class="info"><span class="code-tag">JP706</span><div class="name">EARTH馬桶發泡清潔粉</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/k90G5G" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP705.png" alt="Wpc. Patterns掛式吸水雨傘收納袋"></div>
+      <div class="info"><span class="code-tag">JP705</span><div class="name">Wpc. Patterns掛式吸水雨傘收納袋</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/jV5bMq" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP705B.webp" alt="Wpc. IZA LARGE & HOOK 大傘面扣環晴雨傘"></div>
+      <div class="info"><span class="code-tag">JP705</span><div class="name">Wpc. IZA LARGE & HOOK 大傘面扣環晴雨傘</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/5Xq0lG" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP704.jpeg" alt="Wpc Air-Light 輕量晴雨傘"></div>
+      <div class="info"><span class="code-tag">JP704</span><div class="name">Wpc Air-Light 輕量晴雨傘</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/eQ8j8R" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP703.jpg" alt="Wpc超輕量Tiny100%抗UV遮光折疊傘"></div>
+      <div class="info"><span class="code-tag">JP703</span><div class="name">年度銷售冠軍!Wpc超輕量Tiny100%抗UV遮光折疊傘</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/3yLd1R" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP702.webp" alt="Wpc. IZA COOL & COMPACT遮熱晴雨兼用摺疊傘"></div>
+      <div class="info"><span class="code-tag">JP702</span><div class="name">Wpc. IZA COOL & COMPACT遮熱最高等級!晴雨兼用摺疊傘</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/AX8G1d" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/JP701.jpg" alt="日本ORIGAMI玻璃片口抹茶碗/茶筅座"></div>
+      <div class="info"><span class="code-tag">JP701</span><div class="name">日本ORIGAMI玻璃片口抹茶碗/茶筅座</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+  </ul>
+
+  <div class="section-title"><span class="badge ty">TY</span><h2>日本卡通雜貨</h2><span class="line"></span></div>
+  <ul class="list ty">
+    <li><a class="card" href="https://reurl.cc/eQE7l7" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/TY711.jpg" alt="日本Snoopy復古灰水洗帆布托特包"></div>
+      <div class="info"><span class="code-tag">TY711</span><div class="name">日本Snoopy復古灰水洗帆布托特包</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/NOrLdm" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/TY710.jpg" alt="迪士尼玩具總動員可折疊保冷野餐袋"></div>
+      <div class="info"><span class="code-tag">TY710</span><div class="name">迪士尼玩具總動員可折疊保冷野餐袋</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/4YaveX" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/TY709.png" alt="日本卡通毛巾布掛飾小收納包"></div>
+      <div class="info"><span class="code-tag">TY709</span><div class="name">日本卡通毛巾布掛飾小收納包</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/dOGl32" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/TY708.png" alt="日本卡通好朋友清潔海綿刷"></div>
+      <div class="info"><span class="code-tag">TY708</span><div class="name">日本卡通好朋友清潔海綿刷</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/NOrG5q" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/TY707.png" alt="日本迪士尼造型髮帶"></div>
+      <div class="info"><span class="code-tag">TY707</span><div class="name">日本迪士尼造型髮帶</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/27bO3v" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/TY706.png" alt="日本玩具總動員大型摺疊購物袋"></div>
+      <div class="info"><span class="code-tag">TY706</span><div class="name">日本玩具總動員大型摺疊購物袋</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/Vn3g7Z" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/TY705.jpg" alt="Zebra bLen迪士尼限定版多色筆"></div>
+      <div class="info"><span class="code-tag">TY705</span><div class="name">Zebra bLen迪士尼限定版多色筆</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/xeg8Kz" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/TY703.jpg" alt="日本卡通甜甜圈一週藥盒"></div>
+      <div class="info"><span class="code-tag">TY703</span><div class="name">日本卡通甜甜圈一週藥盒</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/90ZnNv" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/TY702.jpg" alt="日本卡通旅行收納包四件組"></div>
+      <div class="info"><span class="code-tag">TY702</span><div class="name">日本卡通旅行收納包四件組</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/YmW3No" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/TY701.webp" alt="三麗鷗好朋友網格收納板"></div>
+      <div class="info"><span class="code-tag">TY701</span><div class="name">三麗鷗七月新品！好朋友網格收納板</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+  </ul>
+
+  <div class="section-title"><span class="badge us">US</span><h2>瑪酥自選好物</h2><span class="line"></span></div>
+  <ul class="list us">
+    <li><a class="card" href="https://reurl.cc/Vn3VmR" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/US703.jpg" alt="HydroJug Everyday Tumbler"></div>
+      <div class="info"><span class="code-tag">US703</span><div class="name">美國爆紅HydroJug Everyday Tumbler陶瓷吸管隨行杯</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/aE5yMD" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/US702.jpg" alt="Starbucks x Owala SmoothSip Slider"></div>
+      <div class="info"><span class="code-tag">US702</span><div class="name">Starbucks x Owala 限量聯名！SmoothSip Slider 滑蓋隨行杯</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+    <li><a class="card" href="https://reurl.cc/1lg9NQ" target="_blank" rel="noopener">
+      <div class="thumb"><img src="images/US701.jpg" alt="Trader Joe's夏日條紋迷你托特包"></div>
+      <div class="info"><span class="code-tag">US701</span><div class="name">Trader Joe's限量款！夏日條紋迷你托特包</div><div class="cta">前往下單貼文<svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    </a></li>
+  </ul>
+
+</div>
+
+<footer>祝購物愉快 ❤️</footer>
+
+</body>
+</html>
